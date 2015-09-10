@@ -4,17 +4,31 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>    
-<script>///////////////////////////////////////////////////////////////////// ///////////////////////////////////////////////////////////////////// //// //// //// _____ __ __ //// //// / ___/__ ___ ___ / /_______ ______/ /____ _______ //// //// / /__/ _ \/ _
+  <body>
+<script>
+
+///////////////////////////////////////////////////////////////////// ///////////////////////////////////////////////////////////////////// //// //// //// _____ __ __ //// //// / ___/__ ___ ___ / /_______ ______/ /____ _______ //// //// / /__/ _ \/ _
 \(_-
 </ __/ __/ // / __/ __/ _ \/ __(_-< //// //// \___/\___/_//_/___/\__/_/ \_,_/\__/\__/\___/_/ /___/ //// //// //// //// In the examples below make sure you name each //// //// constructor differently as to not override eachother. //// //// I need to be
 able to test them in gh-pages on the //// //// console. Also make sure there are no javascript errors //// //// and check your code in js hint. Finally make sure it //// //// is formatted/indented correctly. Code is in place //// //// that validates each
 answer. It will currently say: //// //// `Assertion failed` for each question. Once you answer //// //// the question correctly that will go away. Use this to //// //// check your work //// //// //// //// //// /////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////// ///////////////////////////////////////////////////////////////////// // 1. ------------------------------------------------------------ // // Create a simple constructor function called
-`Foo` and create a new // instance from it called `foo`. // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- // var Foo=f unction(){ }; var foo=n ew Foo (); // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- // //====V alidating===============================================/
+`Foo` and create a new // instance from it called `foo`
+. // -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- // var Foo=f unction(){ }; var foo=n ew Foo (); // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- // //====V alidating===============================================/
+
+var Foo = function(){
+};
+var foo = new Foo ();
+
 / console.assert(foo instanceof Foo); // --------------------------------------------------------------- // ///////////////////////////////////////////////////////////////////// ///////////////////////////////////////////////////////////////////// //
+
 2. ------------------------------------------------------------ // // Create a constructor function called `Dog` that sets a property // on itself within the constructor. The property should be called // `says` and the value should be `life is ruff` //
 -- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ - Your Answer - ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ -- // function Dog(says) { this.says=s ays; } var dog=n ew Dog( "life is ruff"); // -- ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ ↑ -- // //====V alidating===============================================/
+function Dog(says)  {
+  this.says = says;
+}
+var dog = new Dog("life is ruff");
+
 / console.assert(new Dog().says==="life is ruff" ); // --------------------------------------------------------------- // ///////////////////////////////////////////////////////////////////// /////////////////////////////////////////////////////////////////////
 // 3. ------------------------------------------------------------ // // Create a constructor function called `Cat` that has a method on // it 's prototype called `growl` that returns the string `meow`.
 // create an instance of this called `cat`

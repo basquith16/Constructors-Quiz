@@ -31,13 +31,15 @@ function Cat () {
 console.assert(cat instanceof Cat);
 console.assert(cat.growl() === "meow");
 
+
+
 function KeepSecret (secret) {
   var aSecret = "I farted";
   var shhhh = new KeepSecret(aSecret);
 
   function squeal () {return secret;}
 }
-
+squeal();
 
 var mySecret = "My class rocks!";
 var dontTellNobody = new KeepSecret(mySecret);
@@ -47,6 +49,7 @@ console.assert(dontTellNobody.squeal() === mySecret);
 
 
 function Key (password) {
+  this.password = password;
   var myPassword = new Key ('ablabab ');
 }
 
@@ -56,8 +59,10 @@ function Safe (wheresVault, myPassword ) {
   Safe.prototype.unlock = Key();
     if(Key() === myPassword) {
       return myVaultLocation;
+    } else {
+      return false;
     }
-    }
+}
 
 
 var sensitive = "shhhhh!";

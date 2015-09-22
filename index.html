@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <script>
-    var Foo = function(){
 
-var foo = new Foo ();
-console.assert(foo instanceof Foo);
-};
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
 
-function Dog(says)  {
-  this.says = says;
+<body>
+  <script>
+    var Foo = function() {
 
-var dog = new Dog("life is ruff");
+      var foo = new Foo();
+      console.assert(foo instanceof Foo);
+    };
+
+    function Dog(says) {
+      this.says = "life is ruff";
 }
-console.assert(new Dog().says==="life is ruff" );
+
+    console.assert(new Dog().says === "life is ruff");
 
 
-function Cat () {
-  Cat.prototype.growl = function () {return 'meow';};
-
-  var cat = new Cat('meow')
-  cat instanceof Cat;
-  cat.growl ();
+    function Cat(growl) {
+      this.growl = growl
 };
+var cat = new Cat('meow');
 
 console.assert(cat instanceof Cat);
-console.assert(cat.growl() === "meow");
+console.assert(cat.growl === "meow");
 
 
 
-function KeepSecret (secret) {
-  var aSecret = "I farted";
-  var shhhh = new KeepSecret(aSecret);
+    function KeepSecret(secret) {
+      this.secret = secret;
+    };
+    var mySecret = new KeepSecret('I farted');
 
-  function squeal () {return secret;}
-}
-squeal();
+    var dontTellNobody = new KeepSecret(mySecret);
+    dontTellNobody.squeal = function(){
+          return mySecret;
+        };
 
-var mySecret = "My class rocks!";
-var dontTellNobody = new KeepSecret(mySecret);
-console.assert(dontTellNobody.squeal() === mySecret);
+    console.assert(dontTellNobody.squeal() === mySecret);
 
-
-
-
-function Key (password) {
-  this.password = password;
-  var myPassword = new Key ('ablabab ');
-}
-
-function Safe (wheresVault, myPassword ) {
-  var myVaultLocation = 'Uranus ';
-
-  Safe.prototype.unlock = Key();
-    if(Key() === myPassword) {
-      return myVaultLocation;
-    } else {
-      return false;
+    function Key () {
     }
-}
+      rightKey = new Key ();
+      wrongKey = new Key ();
 
 
-var sensitive = "shhhhh!";
-var rightKey  = new Key();
-var wrongKey  = new Key();
-var safe      = new Safe(sensitive, rightKey);
-    </script>
-  </body>
+    function Safe(sensitive, rightKey) {
+      this.sensitive = sensitive;
+      this.rightKey = rightKey;
+    }
+    var sensitive = 'shhhhh!'
+
+    Safe.unlock = function(otherKey) {
+      if(otherKey === rightKey) {
+        return sensitive
+      } else {
+        return false;
+      }
+    };
+
+
+
+    console.assert(Safe.unlock(wrongKey) !== sensitive);
+    console.assert(Safe.unlock(rightKey) === sensitive);
+  </script>
+</body>
+
 </html>
